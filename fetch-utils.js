@@ -6,7 +6,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export function getUser() {
     return client.auth.session() && client.auth.session().user;
-    if (!user) location.replace('../');
+    // if (!user) location.replace('../');
 }
 
 export async function signupUser(email, password) {
@@ -17,10 +17,25 @@ export async function signupUser(email, password) {
 }
 
 
-export async function signInUser(email, password) {}
+export async function signInUser(email, password) {
+    const response = await client.auth.signIn({ email, password });
 
-export async function checkAuth() {}
+    return response.user;
+}
 
-export async function redirectIfLoggedIn() {}
+export async function checkAuth() {
+    const user = await getUser();
+  
+    if (!user) location.replace('../');
+
+
+
+}
+
+export async function redirectIfLoggedIn() {
+    if (await getUser()) {
+        location.replace('./other-page');
+    }
+}
 
 export async function logout() {}
