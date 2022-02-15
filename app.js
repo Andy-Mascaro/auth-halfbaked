@@ -13,7 +13,7 @@ const signUpPassword = document.getElementById('sign-up-password');
 signUpForm.addEventListener ('submit', async (e) =>{
     e.preventDefault();
     const user = await signupUser (signUpEmail.value, signUpPassword.value);
-    // console.log(signUpEmail.value, signUpPassword.value);
+   
     if (user) {
         redirectIfLoggedIn();
     } else {
