@@ -9,9 +9,6 @@ const signUpEmail = document.getElementById('sign-up-email');
 const signUpPassword = document.getElementById('sign-up-password');
 
 
-// if (user){
-//     location.replace('/other-page');
-// }
 
 signUpForm.addEventListener ('submit', async (e) =>{
     e.preventDefault();
@@ -35,7 +32,7 @@ signInForm.addEventListener ('submit', async (e) =>{
     } else {
         console.error(user);
     }
-    // console.log(signInEmail.value, signInPassword.value);
+   
 
     
 });
